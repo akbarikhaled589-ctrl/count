@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fa">
 <head>
@@ -69,4 +68,52 @@
 </head>
 <body>
     <div class="container">
-        <h2>💰
+        <h2>💰 حسابی گدام میهن 💰</h2>
+        <input type="text" id="numberInput" placeholder="عدد را وارد کنید (مثال: 1,2,3)">
+        <button onclick="addNumber()">اضافه کردن</button>
+        <div class="number-list" id="numberList"></div>
+        <div class="result" id="result">جمع: 0</div>
+    </div>
+
+    <script>
+        let numbers = [];
+
+        function addNumber() {
+            const input = document.getElementById('numberInput');
+            const value = input.value.trim();
+
+            if(value === '') {
+                alert('لطفاً عدد وارد کنید');
+                return;
+            }
+
+            // حمایت از چند عدد با کاما
+            const parts = value.split(',').map(n => parseFloat(n.trim()));
+            let validNumbers = parts.filter(n => !isNaN(n));
+
+            if(validNumbers.length === 0) {
+                alert('لطفاً عدد معتبر وارد کنید');
+                return;
+            }
+
+            numbers = numbers.concat(validNumbers);
+            updateListAndSum();
+            input.value = '';
+        }
+
+        function updateListAndSum() {
+            const listDiv = document.getElementById('numberList');
+            listDiv.innerHTML = '';
+            numbers.forEach((num, index) => {
+                const div = document.createElement('div');
+                div.className = 'number-item';
+                div.innerText = `${index + 1}. ${num}`;
+                listDiv.appendChild(div);
+            });
+
+            const sum = numbers.reduce((a,b) => a+b, 0);
+            document.getElementById('result').innerText = 'جمع: ' + sum;
+        }
+    </script>
+</body>
+</html>
