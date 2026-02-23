@@ -1,75 +1,72 @@
+
 <!DOCTYPE html>
 <html lang="fa">
 <head>
     <meta charset="UTF-8">
-    <title>جمع اعداد</title>
+    <title>💰 حسابی گدام میهن 💰</title>
     <style>
         body {
             font-family: 'Tahoma', sans-serif;
-            background: #f0f4f8;
+            background: linear-gradient(135deg, #f9f9f9, #c2e9fb);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
         }
         .container {
             background: #ffffff;
             padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            width: 400px;
             text-align: center;
-            width: 350px;
+        }
+        h2 {
+            color: #ff6f61;
+            margin-bottom: 20px;
         }
         input {
             padding: 10px;
             width: 80%;
             margin: 10px 0;
-            border-radius: 5px;
+            border-radius: 10px;
             border: 1px solid #ccc;
             font-size: 16px;
+            text-align: center;
         }
         button {
-            padding: 10px 20px;
-            background: #4CAF50;
+            padding: 10px 25px;
+            background: #ff6f61;
             color: white;
             border: none;
-            border-radius: 7px;
+            border-radius: 10px;
             cursor: pointer;
             font-size: 16px;
+            transition: background 0.3s;
         }
         button:hover {
-            background: #45a049;
+            background: #e65550;
         }
-        .result {
+        .result, .number-list {
             margin-top: 15px;
-            font-size: 18px;
-            font-weight: bold;
+            font-size: 16px;
             color: #333;
+        }
+        .number-list {
+            max-height: 180px;
+            overflow-y: auto;
+            padding: 10px;
+            border: 2px dashed #ff6f61;
+            border-radius: 12px;
+            background: #fff7f5;
+            margin-bottom: 10px;
+        }
+        .number-item {
+            padding: 3px 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>جمع اعداد</h2>
-        <input type="text" id="numberInput" placeholder="عدد را وارد کنید">
-        <button onclick="addNumber()">اضافه کردن</button>
-        <div class="result" id="result">جمع: 0</div>
-    </div>
-
-    <script>
-        let numbers = [];
-        function addNumber() {
-            const input = document.getElementById('numberInput');
-            const value = parseFloat(input.value);
-            if (!isNaN(value)) {
-                numbers.push(value);
-                const sum = numbers.reduce((a,b) => a+b, 0);
-                document.getElementById('result').innerText = 'جمع: ' + sum;
-                input.value = '';
-            } else {
-                alert('لطفاً یک عدد معتبر وارد کنید');
-            }
-        }
-    </script>
-</body>
-</html>
+        <h2>💰
